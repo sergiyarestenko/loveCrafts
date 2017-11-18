@@ -33,7 +33,7 @@ gulp.task('css',function() {
 
 gulp.task('js',function(){
 	return gulp.src(config.paths.js)
-		.pipe(uglify())
+		// .pipe(uglify())
 		.pipe(gulp.dest(config.paths.build + '/js'));
 });
 

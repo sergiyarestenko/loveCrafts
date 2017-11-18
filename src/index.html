@@ -4,27 +4,27 @@
         <meta charset="UTF-8">
         <title>LoveCraftsTest</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,500,600" rel="stylesheet">
         <link rel="stylesheet" href="stylesheets/main.css">
     </head>
     <body>
         <div class="exercise-container">
             <h1>Registration Exercise</h1>
-            <form  class = "exercise-form" action="" method = "post" target="_self">
+            <form id = "exercise-form" class = "exercise-form" action="" method = "post" target="_self" onsubmit="return formFunction.submitForm()">
                 <div>
-                    <input type="text" id = "email" placeholder="example@example.com">
+                    <input type="text" id = "email" name = "email" placeholder="example@example.com">
                     <label for="email">Email</label>
                 </div>
                 <div>
-                    <input type="text" id = "birthday" placeholder="dd/mm/yyyy">
+                    <input type="text" id = "birthday" name = "birthday" placeholder="dd/mm/yyyy">
                     <label for="birthday">Birthday</label>
                 </div>
                 <div>
-                   <input type="password" id = "pass_1" placeholder="">
+                   <input type="password" id = "pass_1" name = "pass_1" placeholder="">
                    <label for="pass_1">Password</label>
                 </div>
                 <div>
-                    <input type="password" id = "pass_2" placeholder="">
+                    <input type="password" id = "pass_2" name = "pass_2" placeholder="">
                     <label for="pass_2">Confirm Password</label>
                 </div>
                 <div class="button-holder">

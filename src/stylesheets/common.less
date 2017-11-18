@@ -40,11 +40,51 @@ body {
     flex-direction: row-reverse;
     height: 1.5em;
     line-height:1.5em;
+    overflow: hidden;
     padding:.5em 0;
+    position: relative;
     width: 25em;
+    &:after {
+      color: @red-alert;
+      content: '';
+      font-size:@font-size-alert;
+      font-weight:100;
+      opacity: 0;
+      position: absolute;
+      right: 1em;
+      top:-1em;
+      transition: .5s;
+    }
+
     &.button-holder {
       flex-direction: row;
       padding-top: 2em;
+
+    }
+
+    &.incorrect, &.empty,&.match {
+      input {
+        border: 1px solid @red-alert;
+      }
+      &:after {
+        opacity: 1;
+        top:.5em;
+      }
+    }
+    &.incorrect {
+      &:after {
+        content: 'incorrect value';
+      }
+    }
+    &.empty {
+      &:after {
+        content: 'field is required';
+      }
+    }
+    &.match{
+      &:after {
+        content: 'passwords do not match';
+      }
     }
   }
 
@@ -58,7 +98,8 @@ body {
     border: 1px solid @border-grey;
     outline: none;
     padding: 0 .5em;
-    width: 100%
+    transition: .5s;
+    width: 100%;
   }
 
   button {
@@ -69,6 +110,7 @@ body {
     font-weight:600;
     padding: .25em 1em;
     transition: .25s;
+
     &:hover {
       box-shadow: 0 0 2px 1px @green;
       color: @green;
