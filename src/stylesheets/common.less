@@ -2,11 +2,79 @@
 
 html,
 body {
-  background: @white;
+  background: @grey;
+
+  color: @font-grey;
   font-family: @font-family-main;
   font-size: @font-size-prime;
-  font-weight: 300;
-  z-index: 1;
+  font-weight: 400;
   margin:0 auto;
+  min-width: 320px;
+  z-index: 1;
 }
 
+.exercise-container {
+  margin: 0 auto;
+  max-width: 1600px;
+  width: 80%;
+
+  h1 {
+    background: url("../img/logo-loveknitting.svg") no-repeat 0 50%;
+    font-weight:500;
+    margin:0.5em 0;
+    padding:1em 0.5em .5em 8em;
+  }
+}
+
+.exercise-form {
+  box-sizing: border-box;
+  background: @white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2em 1em;
+  width: 100%;
+
+  div {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 1.5em;
+    line-height:1.5em;
+    padding:.5em 0;
+    width: 25em;
+    &.button-holder {
+      flex-direction: row;
+      padding-top: 2em;
+    }
+  }
+
+  label {
+    width: 15em;
+    display: flex;
+    font-size:smaller;
+  }
+
+  input {
+    border: 1px solid @border-grey;
+    outline: none;
+    padding: 0 .5em;
+    width: 100%
+  }
+
+  button {
+    background: @green;
+    border: 2px solid @green;
+    color: @white;
+    cursor: pointer;
+    font-weight:600;
+    padding: .25em 1em;
+    transition: .25s;
+    &:hover {
+      box-shadow: 0 0 2px 1px @green;
+      color: @green;
+      background: transparent;
+    }
+  }
+
+
+}

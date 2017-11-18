@@ -1,3 +1,40 @@
-@media screen and (max-width:1660px){
-
+@media screen and (max-width:800px){
+  .exercise-container {
+    width: 100%;
+    h1 {
+      background-position-x: 5%;
+      padding-left: 9em;
+    }
+  }
+}
+@media screen and (max-width:700px){
+  .exercise-container {
+    h1 {
+      background-image: url("../img/logo-loveknitting-sm.svg");
+      padding-left: 3em;
+    }
+  }
+}
+@media screen and (max-width:500px){
+  .exercise-container {
+    h1 {
+      font-size:7vw;
+      background-size: auto 100%;
+    }
+  }
+  .exercise-form {
+    div{
+      flex-direction: column-reverse;
+      height: auto;
+      padding-top: 0;
+      width: auto;
+    }
+    label {
+     padding-bottom: .5em;
+    }
+    input {
+      padding: .5em;
+      width: auto;
+    }
+  }
 }

@@ -2,18 +2,37 @@
 <html lang="ru">
     <head>
         <meta charset="UTF-8">
-        <title>Test</title>
-        <link rel="stylesheet" href="stylesheets/main.css">
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&amp;subset=cyrillic" rel="stylesheet">
+        <title>LoveCraftsTest</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600" rel="stylesheet">
+        <link rel="stylesheet" href="stylesheets/main.css">
     </head>
+    <body>
+        <div class="exercise-container">
+            <h1>Registration Exercise</h1>
+            <form  class = "exercise-form" action="" method = "post" target="_self">
+                <div>
+                    <input type="text" id = "email" placeholder="example@example.com">
+                    <label for="email">Email</label>
+                </div>
+                <div>
+                    <input type="text" id = "birthday" placeholder="dd/mm/yyyy">
+                    <label for="birthday">Birthday</label>
+                </div>
+                <div>
+                   <input type="password" id = "pass_1" placeholder="">
+                   <label for="pass_1">Password</label>
+                </div>
+                <div>
+                    <input type="password" id = "pass_2" placeholder="">
+                    <label for="pass_2">Confirm Password</label>
+                </div>
+                <div class="button-holder">
+                    <button type="submit">Register</button>
+                </div>
 
-    <body >
-    //= templates/form/code.html
-
-
-
-
+            </form>
+        </div>
     <script type="text/javascript" src="./js/app.js"></script>
     </body>
 </html>
