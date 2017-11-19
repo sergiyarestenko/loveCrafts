@@ -1,12 +1,11 @@
-
-
 var FormFunction = function (form) {
 
 	var self = this,
 		email = form.querySelector('input[name="email"]'),
 		birthday = form.querySelector('input[name="birthday"]'),
 		pass_1 = form.querySelector('input[name="pass_1"]'),
-		pass_2 = form.querySelector('input[name="pass_2"]');
+		pass_2 = form.querySelector('input[name="pass_2"]'),
+		button = form.querySelector('button');
 
 	(function () {
 		email.addEventListener('mouseover',function () {
@@ -21,13 +20,30 @@ var FormFunction = function (form) {
 		pass_2.addEventListener('mouseover',function () {
 			self.clearError(pass_2);
 		});
-
+		button.disabled = true;
 	})();
+
+	(function () {
+		var inputs = form.querySelectorAll('input');
+		for (var i = 0; i < inputs.length; i ++){
+			inputs[i].onblur = function () {
+				self.onBlur();
+			};
+		}
+	})();
+
+	this.onBlur = function () {
+		if(email.value.trim() == ''||birthday.value.trim() == ''||pass_1.value.trim() == ''||pass_2.value.trim() == ''){
+			return false;
+		}
+		button.disabled = false;
+	};
 
 	this.submitForm = function () {
 		if(!self.validateDate()&&!self.validateEmail()&&!self.checkPasswords()){
 			return false;
 		}
+		return true;
 	};
 
 	this.validateEmail = function () {
@@ -42,7 +58,6 @@ var FormFunction = function (form) {
 			return false;
 		}
 		return true;
-
 	};
 
 	this.validateDate = function () {
@@ -87,21 +102,28 @@ var FormFunction = function (form) {
 	};
 
 	this.clearError = function (el) {
+		el.parentNode.classList.remove('error');
 		el.parentNode.classList.remove('incorrect');
 		el.parentNode.classList.remove('empty');
 		el.parentNode.classList.remove('match');
 	};
 
 	this.incorrectValue = function (el) {
+		el.parentNode.classList.add('error');
 		el.parentNode.classList.add('incorrect');
+		button.disabled = true;
 	};
 
 	this.emptyValue = function (el) {
+		el.parentNode.classList.add('error');
 		el.parentNode.classList.add('empty');
+		button.disabled = true;
 	};
 
 	this.notMatch = function (el) {
+		el.parentNode.classList.add('error');
 		el.parentNode.classList.add('match');
+		button.disabled = true;
 	};
 
 };

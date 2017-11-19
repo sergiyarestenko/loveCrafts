@@ -62,7 +62,7 @@ body {
 
     }
 
-    &.incorrect, &.empty,&.match {
+    &.error {
       input {
         border: 1px solid @red-alert;
       }
@@ -116,6 +116,16 @@ body {
       color: @green;
       background: transparent;
     }
+    &:disabled{
+    opacity: .5;
+      &:hover {
+        background: @green;
+        box-shadow: none;
+        color: @white;
+        cursor: default;
+      }
+    }
+
   }
 
 
