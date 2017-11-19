@@ -43,7 +43,44 @@ var FormFunction = function (form) {
 		if(!self.validateDate()&&!self.validateEmail()&&!self.checkPasswords()){
 			return false;
 		}
-		return true;
+		this.ajaxReq();
+		return false;
+	};
+
+	this.ajaxReq = function () {
+		var formData = new FormData(form),
+			xhr = new XMLHttpRequest();
+		xhr.open('POST', 'target.php');
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if(xhr.status == 200) {
+				console.log( JSON.parse(xhr.responseText));
+					self.showResult(true, JSON.parse(xhr.responseText));
+				} else {
+					self.showResult(false);
+				}
+			}
+		};
+		xhr.send(formData);
+	};
+	this.showResult = function (f,str) {
+		if(f){
+			self.showLoader();
+			alert ('Welcome '+ str);
+			self.hideLoader();
+		}else {
+			self.showLoader();
+			alert ('Something wrong, try later.');
+			self.hideLoader();
+		}
+	};
+
+	this.showLoader = function () {
+	console.log('strat');
+	};
+
+	this.hideLoader = function () {
+	console.log('ffff');
 	};
 
 	this.validateEmail = function () {
@@ -125,7 +162,9 @@ var FormFunction = function (form) {
 		el.parentNode.classList.add('match');
 		button.disabled = true;
 	};
-
 };
 
-var formFunction = new FormFunction(document.getElementById('exercise-form'));
+if(document.getElementById('exercise-form')){
+	var formFunction = new FormFunction(document.getElementById('exercise-form'));
+}
+
