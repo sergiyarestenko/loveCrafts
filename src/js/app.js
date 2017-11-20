@@ -40,7 +40,10 @@ var FormFunction = function (form) {
 	};
 
 	this.submitForm = function () {
-		if(!self.validateDate()&&!self.validateEmail()&&!self.checkPasswords()){
+		self.validateDate();
+		self.validateEmail();
+		self.checkPasswords();
+		if(!self.validateDate()||!self.validateEmail()||!self.checkPasswords()){
 			return false;
 		}
 		this.ajaxReq();
@@ -54,7 +57,6 @@ var FormFunction = function (form) {
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState == 4) {
 				if(xhr.status == 200) {
-				console.log( JSON.parse(xhr.responseText));
 					self.showResult(true, JSON.parse(xhr.responseText));
 				} else {
 					self.showResult(false);
@@ -76,11 +78,11 @@ var FormFunction = function (form) {
 	};
 
 	this.showLoader = function () {
-	console.log('strat');
+		form.querySelector('.button-holder').classList.add('loaded');
 	};
 
 	this.hideLoader = function () {
-	console.log('ffff');
+		form.querySelector('.button-holder').classList.remove('loaded');
 	};
 
 	this.validateEmail = function () {

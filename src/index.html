@@ -10,7 +10,7 @@
     <body>
         <div class="exercise-container">
             <h1>Registration Exercise</h1>
-            <form id = "exercise-form" class = "exercise-form" action="target.php" target="_self" onsubmit="return formFunction.submitForm()">
+            <form id = "exercise-form" class = "exercise-form" action="target.php" method="post" target="_self" onsubmit="return formFunction.submitForm()">
                 <div>
                     <input type="text" id = "email" name = "email" placeholder="example@example.com">
                     <label for="email">Email</label>
@@ -29,8 +29,8 @@
                 </div>
                 <div class="button-holder">
                     <button type="submit">Register</button>
+                    <div class="loader"></div>
                 </div>
-
             </form>
         </div>
         <script type="text/javascript" src="./js/app.js"></script>

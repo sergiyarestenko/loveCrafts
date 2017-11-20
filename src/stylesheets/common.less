@@ -3,7 +3,6 @@
 html,
 body {
   background: @grey;
-
   color: @font-grey;
   font-family: @font-family-main;
   font-size: @font-size-prime;
@@ -44,6 +43,7 @@ body {
     padding:.5em 0;
     position: relative;
     width: 25em;
+
     &:after {
       color: @red-alert;
       content: '';
@@ -58,29 +58,45 @@ body {
 
     &.button-holder {
       flex-direction: row;
-      padding-top: 2em;
+      height: 4em;
+      padding: 0;
 
+      .loader {
+        display: none;
+      }
+
+        &.loaded {
+        .loader {
+          display: flex;
+        }
+
+         button {display: none}
+      }
     }
 
     &.error {
       input {
         border: 1px solid @red-alert;
       }
+
       &:after {
         opacity: 1;
         top:.5em;
       }
     }
+
     &.incorrect {
       &:after {
         content: 'incorrect value';
       }
     }
+
     &.empty {
       &:after {
         content: 'field is required';
       }
     }
+
     &.match{
       &:after {
         content: 'passwords do not match';
@@ -101,13 +117,14 @@ body {
     transition: .5s;
     width: 100%;
   }
-
   button {
     background: @green;
     border: 2px solid @green;
     color: @white;
     cursor: pointer;
+    height:2.5em;
     font-weight:600;
+    margin: auto 0;
     padding: .25em 1em;
     transition: .25s;
 
@@ -116,8 +133,10 @@ body {
       color: @green;
       background: transparent;
     }
+
     &:disabled{
     opacity: .5;
+
       &:hover {
         background: @green;
         box-shadow: none;
@@ -125,8 +144,13 @@ body {
         cursor: default;
       }
     }
-
   }
 
-
+  .loader {
+    background: url("../img/spinner.svg")no-repeat 50% 50%;
+    background-size: contain;
+    margin:auto 0;
+    height: 2.5em;
+    width: 5em;
+  }
 }
